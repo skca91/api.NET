@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.EntityFrameworkCore;
+using api.NET.Data;
 
 namespace api.NET
 {
@@ -32,6 +35,22 @@ namespace api.NET
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api.NET", Version = "v1" });
             });
+
+            //var connectionString = "server=localhost;user=root;password=;database=disney";
+
+            //// Replace with your server version and type.
+            //// Use 'MariaDbServerVersion' for MariaDB.
+            //// Alternatively, use 'ServerVersion.AutoDetect(connectionString)'.
+            //// For common usages, see pull request #1233.
+            //var serverVersion = new MariaDbServerVersion(new Version(10, 4, 13));
+
+            //// Replace 'YourDbContext' with the name of your own DbContext derived class.
+            //services.AddDbContext<DisneyDbContext>(
+            //    dbContextOptions => dbContextOptions
+            //        .UseMySql(connectionString, serverVersion)
+            //        .EnableSensitiveDataLogging() // <-- These two calls are optional but help
+            //        .EnableDetailedErrors()       // <-- with debugging (remove for production).
+            //);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
