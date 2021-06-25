@@ -29,12 +29,23 @@ namespace api.NET
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = "server=127.0.0.1;user=steph;password=1234;database=disney";
 
+            var serverVersion = new MySqlServerVersion(new Version(5, 7, 31));
+
+            services.AddDbContext<DisneyDbContext>(
+                dbContextOptions => dbContextOptions
+                    .UseMySql(connectionString, serverVersion)
+                    .EnableSensitiveDataLogging() 
+                    .EnableDetailedErrors()      
+            );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "api.NET", Version = "v1" });
             });
+
+            services.AddControllers().AddNewtonsoftJson();
 
         }
 
