@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace api.NET.Data
 {
-    public class Peliculas
+    public class Pelicula
     {
 
         [Key]
@@ -15,8 +15,8 @@ namespace api.NET.Data
         public string Titulo { get; set; }
         public DateTime Creacion { get; set; }
         public int Calificacion { get; set; }
-        public Generos Generos { get; set; }
-        public ICollection<Personajes> Personajes { get; set; }
+        public Genero Generos { get; set; }
+        public ICollection<Personaje> Personajes { get; set; }
 
 
     }

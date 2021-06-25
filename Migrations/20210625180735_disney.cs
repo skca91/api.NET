@@ -76,7 +76,7 @@ namespace api.NET.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PeliculasPersonajes",
+                name: "PeliculaPersonaje",
                 columns: table => new
                 {
                     PeliculasIdPelicula = table.Column<int>(type: "int", nullable: false),
@@ -84,15 +84,15 @@ namespace api.NET.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PeliculasPersonajes", x => new { x.PeliculasIdPelicula, x.PersonajesIdPersonaje });
+                    table.PrimaryKey("PK_PeliculaPersonaje", x => new { x.PeliculasIdPelicula, x.PersonajesIdPersonaje });
                     table.ForeignKey(
-                        name: "FK_PeliculasPersonajes_Peliculas_PeliculasIdPelicula",
+                        name: "FK_PeliculaPersonaje_Peliculas_PeliculasIdPelicula",
                         column: x => x.PeliculasIdPelicula,
                         principalTable: "Peliculas",
                         principalColumn: "IdPelicula",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PeliculasPersonajes_Personajes_PersonajesIdPersonaje",
+                        name: "FK_PeliculaPersonaje_Personajes_PersonajesIdPersonaje",
                         column: x => x.PersonajesIdPersonaje,
                         principalTable: "Personajes",
                         principalColumn: "IdPersonaje",
@@ -107,8 +107,8 @@ namespace api.NET.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PeliculasPersonajes_PersonajesIdPersonaje",
-                table: "PeliculasPersonajes",
+                name: "IX_PeliculaPersonaje_PersonajesIdPersonaje",
+                table: "PeliculaPersonaje",
                 column: "PersonajesIdPersonaje");
         }
 
@@ -118,7 +118,7 @@ namespace api.NET.Migrations
                 name: "Generos");
 
             migrationBuilder.DropTable(
-                name: "PeliculasPersonajes");
+                name: "PeliculaPersonaje");
 
             migrationBuilder.DropTable(
                 name: "Peliculas");

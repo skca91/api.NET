@@ -1,3 +1,4 @@
+using api.NET.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -14,6 +15,16 @@ namespace api.NET
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            //using (DisneyDbContext context = new DisneyDbContext())
+            //{
+          
+            //    Genero genero1 = new Genero() { Nombre = "Animada", Imagen = "animada.jpg",  };
+            //    context.Add(genero1);
+         
+             
+            //    //Guardamos los cambios
+            //    context.SaveChanges();
+            //}
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

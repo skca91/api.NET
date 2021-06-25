@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace api.NET.Data
 {
-    public class Generos
+    public class Genero
     {
         [Key]
         public int IdGenero { get; set; }
@@ -14,6 +14,6 @@ namespace api.NET.Data
         public string Imagen { get; set; }
         public int IdPelicula { get; set; }
 
-        public Peliculas Peliculas { get; set; }
+        public Pelicula Peliculas { get; set; }
     }
 }

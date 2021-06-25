@@ -11,23 +11,23 @@ namespace api.NET.Controllers
 {
     [Route("api/movies")]
     [ApiController]
-    public class PeliculasController : ControllerBase
+    public class PeliculaController : ControllerBase
     {
         private readonly DisneyDbContext _context;
 
-        public PeliculasController(DisneyDbContext context)
+        public PeliculaController(DisneyDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Peliculas>>> GetPeliculas()
+        public async Task<ActionResult<IEnumerable<Pelicula>>> GetPeliculas()
         {
             return await _context.Peliculas.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Peliculas>> GetPeliculas(int id)
+        public async Task<ActionResult<Pelicula>> GetPelicula(int id)
         {
             var peliculas = await _context.Peliculas.FindAsync(id);
 
@@ -40,14 +40,14 @@ namespace api.NET.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPeliculas(int id, Peliculas peliculas)
+        public async Task<IActionResult> PutPelicula(int id, Pelicula pelicula)
         {
-            if (id != peliculas.IdPelicula)
+            if (id != pelicula.IdPelicula)
             {
                 return BadRequest();
             }
 
-            _context.Entry(peliculas).State = EntityState.Modified;
+            _context.Entry(pelicula).State = EntityState.Modified;
 
             try
             {
@@ -69,24 +69,24 @@ namespace api.NET.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Peliculas>> PostPeliculas(Peliculas peliculas)
+        public async Task<ActionResult<Pelicula>> PostPelicula(Pelicula pelicula)
         {
-            _context.Peliculas.Add(peliculas);
+            _context.Peliculas.Add(pelicula);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPeliculas", new { id = peliculas.IdPelicula }, peliculas);
+            return CreatedAtAction("GetPeliculas", new { id = pelicula.IdPelicula }, pelicula);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePeliculas(int id)
+        public async Task<IActionResult> DeletePelicula(int id)
         {
-            var peliculas = await _context.Peliculas.FindAsync(id);
-            if (peliculas == null)
+            var pelicula = await _context.Peliculas.FindAsync(id);
+            if (pelicula == null)
             {
                 return NotFound();
             }
 
-            _context.Peliculas.Remove(peliculas);
+            _context.Peliculas.Remove(pelicula);
             await _context.SaveChangesAsync();
 
             return NoContent();

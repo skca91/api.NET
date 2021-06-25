@@ -6,28 +6,31 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using api.NET.Data;
+using api.NET.Views;
 
 namespace api.NET.Controllers
 {
     [Route("api/characters")]
     [ApiController]
-    public class PersonajesController : ControllerBase
+    public class PersonajeController : ControllerBase
     {
         private DisneyDbContext _context;
 
-        public PersonajesController(DisneyDbContext context)
+        public PersonajeController(DisneyDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Personajes>>> GetPersonajes()
+        public async Task<ActionResult<IEnumerable<PersonajesView>>> GetPersonajes()
         {
-            return await _context.Personajes.ToListAsync();
+
+            return await _context.Personajes.Select(p => new PersonajesView{ Nombre = p.Nombre, Imagen = p.Imagen} ).ToListAsync();
+
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Personajes>> GetPersonajes(int id)
+        public async Task<ActionResult<Personaje>> GetPersonaje(int id)
         {
             var personajes = await _context.Personajes.FindAsync(id);
 
@@ -41,14 +44,14 @@ namespace api.NET.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPersonajes(int id, Personajes personajes)
+        public async Task<IActionResult> PutPersonaje(int id, Personaje personaje)
         {
-            if (id != personajes.IdPersonaje)
+            if (id != personaje.IdPersonaje)
             {
                 return BadRequest();
             }
 
-            _context.Entry(personajes).State = EntityState.Modified;
+            _context.Entry(personaje).State = EntityState.Modified;
 
             try
             {
@@ -70,25 +73,25 @@ namespace api.NET.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Personajes>> PostPersonajes(Personajes personajes)
+        public async Task<ActionResult<Personaje>> PostPersonaje(Personaje personaje)
         {
-            _context.Personajes.Add(personajes);
+            _context.Personajes.Add(personaje);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPersonajes", new { id = personajes.IdPersonaje }, personajes);
+            return CreatedAtAction("GetPersonajes", new { id = personaje.IdPersonaje }, personaje);
         }
 
    
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePersonajes(int id)
+        public async Task<IActionResult> DeletePersonaje(int id)
         {
-            var personajes = await _context.Personajes.FindAsync(id);
-            if (personajes == null)
+            var personaje = await _context.Personajes.FindAsync(id);
+            if (personaje == null)
             {
                 return NotFound();
             }
 
-            _context.Personajes.Remove(personajes);
+            _context.Personajes.Remove(personaje);
             await _context.SaveChangesAsync();
 
             return NoContent();

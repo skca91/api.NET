@@ -9,9 +9,9 @@ namespace api.NET.Data
     public class DisneyDbContext: DbContext
     {
         //Tablas de datos
-        public virtual DbSet<Personajes> Personajes { get; set; }
-        public virtual DbSet<Peliculas> Peliculas { get; set; }
-        public virtual DbSet<Generos> Generos { get; set; }
+        public virtual DbSet<Personaje> Personajes { get; set; }
+        public virtual DbSet<Pelicula> Peliculas { get; set; }
+        public virtual DbSet<Genero> Generos { get; set; }
         public DisneyDbContext()
         {
         }
@@ -22,10 +22,10 @@ namespace api.NET.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Peliculas>()
+            modelBuilder.Entity<Pelicula>()
                 .HasOne(b => b.Generos)
                 .WithOne(i => i.Peliculas)
-                .HasForeignKey<Generos>(b => b.IdPelicula);
+                .HasForeignKey<Genero>(b => b.IdPelicula);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

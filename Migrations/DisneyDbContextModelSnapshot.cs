@@ -17,7 +17,7 @@ namespace api.NET.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.7");
 
-            modelBuilder.Entity("PeliculasPersonajes", b =>
+            modelBuilder.Entity("PeliculaPersonaje", b =>
                 {
                     b.Property<int>("PeliculasIdPelicula")
                         .HasColumnType("int");
@@ -29,10 +29,10 @@ namespace api.NET.Migrations
 
                     b.HasIndex("PersonajesIdPersonaje");
 
-                    b.ToTable("PeliculasPersonajes");
+                    b.ToTable("PeliculaPersonaje");
                 });
 
-            modelBuilder.Entity("api.NET.Data.Generos", b =>
+            modelBuilder.Entity("api.NET.Data.Genero", b =>
                 {
                     b.Property<int>("IdGenero")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace api.NET.Migrations
                     b.ToTable("Generos");
                 });
 
-            modelBuilder.Entity("api.NET.Data.Peliculas", b =>
+            modelBuilder.Entity("api.NET.Data.Pelicula", b =>
                 {
                     b.Property<int>("IdPelicula")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace api.NET.Migrations
                     b.ToTable("Peliculas");
                 });
 
-            modelBuilder.Entity("api.NET.Data.Personajes", b =>
+            modelBuilder.Entity("api.NET.Data.Personaje", b =>
                 {
                     b.Property<int>("IdPersonaje")
                         .ValueGeneratedOnAdd()
@@ -104,33 +104,33 @@ namespace api.NET.Migrations
                     b.ToTable("Personajes");
                 });
 
-            modelBuilder.Entity("PeliculasPersonajes", b =>
+            modelBuilder.Entity("PeliculaPersonaje", b =>
                 {
-                    b.HasOne("api.NET.Data.Peliculas", null)
+                    b.HasOne("api.NET.Data.Pelicula", null)
                         .WithMany()
                         .HasForeignKey("PeliculasIdPelicula")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("api.NET.Data.Personajes", null)
+                    b.HasOne("api.NET.Data.Personaje", null)
                         .WithMany()
                         .HasForeignKey("PersonajesIdPersonaje")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("api.NET.Data.Generos", b =>
+            modelBuilder.Entity("api.NET.Data.Genero", b =>
                 {
-                    b.HasOne("api.NET.Data.Peliculas", "Peliculas")
+                    b.HasOne("api.NET.Data.Pelicula", "Peliculas")
                         .WithOne("Generos")
-                        .HasForeignKey("api.NET.Data.Generos", "IdPelicula")
+                        .HasForeignKey("api.NET.Data.Genero", "IdPelicula")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Peliculas");
                 });
 
-            modelBuilder.Entity("api.NET.Data.Peliculas", b =>
+            modelBuilder.Entity("api.NET.Data.Pelicula", b =>
                 {
                     b.Navigation("Generos");
                 });
