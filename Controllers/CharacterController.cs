@@ -1,0 +1,129 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using api.NET.Models;
+using api.NET.Views;
+
+namespace api.NET.Controllers
+{
+    [Route("api/characters")]
+    [ApiController]
+    public class CharacterController : ControllerBase
+    {
+        private DisneyDbContext _context;
+
+        public CharacterController(DisneyDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CharacterDTO>>> GetCharacters()
+        {
+
+            return await _context.Character.Select(p => new CharacterDTO{ Name = p.Name, Image = p.Image} ).ToListAsync();
+
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Character>> GetCharacter(int id)
+        {
+            var character = await _context.Character.Include(c => c.Movies).Where(c => c.Id == id).FirstOrDefaultAsync();
+
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return character;
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutCharacter(int id, Character character)
+        {
+            if (id != character.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(character).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CharacterExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Character>> PostCharacter(Character character)
+        {
+            _context.Character.Add(character);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetCharacter", new { id = character.Id }, character);
+        }
+
+   
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCharacter(int id)
+        {
+            var personaje = await _context.Character.FindAsync(id);
+            if (personaje == null)
+            {
+                return NotFound();
+            }
+
+            _context.Character.Remove(personaje);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpGet("{search}")]
+        public async Task<IEnumerable<Character>> Search(string? name, int? age, int? movies)
+        {
+            IQueryable<Character> query = _context.Character;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(e => e.Name.Contains(name));
+            }
+
+            if (age != null)
+            {
+                query = query.Where(e => e.Age == age);
+            }
+
+            if (movies != null)
+            {
+
+                query = query.Where(e => e.Movies.Contains(new Movie { Id = movies.Value }));
+            }
+
+            return await query.ToListAsync();
+        }
+
+        private bool CharacterExists(int id)
+        {
+            return _context.Character.Any(e => e.Id == id);
+        }
+    }
+}

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.NET.Data
+namespace api.NET.Models
 {
     public class DisneyDbContext: DbContext
     {
         //Tablas de datos
-        public virtual DbSet<Personaje> Personajes { get; set; }
-        public virtual DbSet<Pelicula> Peliculas { get; set; }
-        public virtual DbSet<Genero> Generos { get; set; }
+        public virtual DbSet<Character> Character { get; set; }
+        public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<Genre> Genre { get; set; }
         public DisneyDbContext()
         {
         }
@@ -22,10 +22,10 @@ namespace api.NET.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pelicula>()
-                .HasOne(b => b.Generos)
-                .WithOne(i => i.Peliculas)
-                .HasForeignKey<Genero>(b => b.IdPelicula);
+            modelBuilder.Entity<Movie>()
+                .HasOne(b => b.Genre)
+                .WithOne(i => i.Movie)
+                .HasForeignKey<Genre>(b => b.IdMovie);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

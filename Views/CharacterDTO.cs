@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace api.NET.Views
 {
-    public class PersonajesView
+    public class CharacterDTO
     {
-        public string Nombre { get; set; }
-        public string Imagen { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
     }
 }
