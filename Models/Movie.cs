@@ -14,7 +14,7 @@ namespace api.NET.Models
         public string Image { get; set; }
         public string Title { get; set; }
         public DateTime Creation { get; set; }
-        public int score { get; set; }
+        public int Score { get; set; }
         public Genre Genre{ get; set; }
         public ICollection<Character> Characters { get; set; }
 

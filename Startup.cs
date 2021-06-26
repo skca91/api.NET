@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
-using api.NET.Data;
+using api.NET.Models;
 
 namespace api.NET
 {

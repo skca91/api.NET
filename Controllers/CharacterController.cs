@@ -98,7 +98,7 @@ namespace api.NET.Controllers
         }
 
         [HttpGet("{search}")]
-        public async Task<IEnumerable<Character>> Search(string? name, int? age, int? movies)
+        public async Task<IEnumerable<Character>> Search(string name, int? age, int? movies)
         {
             IQueryable<Character> query = _context.Character;
 
