@@ -11,6 +11,16 @@
 				{
 					"name": "Detalle de peliculas",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -80,6 +90,16 @@
 				{
 					"name": "listado de peliculas",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -147,6 +167,16 @@
 				{
 					"name": "Guardar pelicula",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -236,6 +266,16 @@
 				{
 					"name": "Busqueda de Peliculas",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -320,6 +360,16 @@
 				{
 					"name": "listado de personajes",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -387,6 +437,16 @@
 				{
 					"name": "Guardar un personaje",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -476,6 +536,16 @@
 				{
 					"name": "Eliminar un personaje",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -537,6 +607,16 @@
 				{
 					"name": "Detalle de personaje",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -606,6 +686,16 @@
 				{
 					"name": "Busqueda de personajes",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
