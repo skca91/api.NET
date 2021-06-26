@@ -21,11 +21,11 @@ namespace api.NET.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<MovieDTO>>> GetMovies()
-        {
-            return await _context.Movie.Select(p => new MovieDTO { Title = p.Title, Image = p.Image, Creation = p.Creation }).ToListAsync();
-        }
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<MovieDTO>>> GetMovies()
+        //{
+        //    return await _context.Movie.Select(p => new MovieDTO { Title = p.Title, Image = p.Image, Creation = p.Creation }).ToListAsync();
+        //}
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
@@ -93,8 +93,8 @@ namespace api.NET.Controllers
             return NoContent();
         }
 
-        [HttpGet("{search}")]
-        public async Task<IEnumerable<Movie>> Search(string? name, int? genre, string? order)
+        [HttpGet]
+        public async Task<IEnumerable<MovieDTO>> Search([FromQuery] string? name, [FromQuery] int? genre, [FromQuery] string? order)
         {
             IQueryable<Movie> query = _context.Movie;
 
@@ -110,10 +110,18 @@ namespace api.NET.Controllers
 
             if (!string.IsNullOrEmpty(order))
             {
-                //query = query.OrderBy<Movie, order>();
+                if (order == "ASC")
+                {
+                    query = query.OrderBy(p => p.Id);
+                }
+                else if (order == "DESC") {
+
+                    query = query.OrderByDescending(p => p.Id);
+                }
+                
             }
 
-            return await query.ToListAsync();
+            return await query.Select(p => new MovieDTO { Title = p.Title, Image = p.Image, Creation = p.Creation }).ToListAsync();
         }
 
         private bool MovieExists(int id)

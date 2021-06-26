@@ -21,14 +21,6 @@ namespace api.NET.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CharacterDTO>>> GetCharacters()
-        {
-
-            return await _context.Character.Select(p => new CharacterDTO{ Name = p.Name, Image = p.Image} ).ToListAsync();
-
-        }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Character>> GetCharacter(int id)
         {
@@ -97,8 +89,8 @@ namespace api.NET.Controllers
             return NoContent();
         }
 
-        [HttpGet("{search}")]
-        public async Task<IEnumerable<Character>> Search(string name, int? age, int? movies)
+        [HttpGet]
+        public async Task<IEnumerable<CharacterDTO>> Search([FromQuery]string name, [FromQuery] int? age, [FromQuery] int? movies)
         {
             IQueryable<Character> query = _context.Character;
 
@@ -118,7 +110,7 @@ namespace api.NET.Controllers
                 query = query.Where(e => e.Movies.Contains(new Movie { Id = movies.Value }));
             }
 
-            return await query.ToListAsync();
+            return await query.Select(p => new CharacterDTO { Name = p.Name, Image = p.Image }).ToListAsync();
         }
 
         private bool CharacterExists(int id)

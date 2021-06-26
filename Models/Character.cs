@@ -8,6 +8,10 @@ namespace api.NET.Models
 {
     public class Character
     {
+        public Character()
+        {
+            this.Movies = new HashSet<Movie>();
+        }
         [Key]
         public int Id { get; set; }
         public string Image { get; set; }
