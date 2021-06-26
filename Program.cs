@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.NET.Models;
 
 namespace api.NET
 {
@@ -14,6 +15,7 @@ namespace api.NET
     {
         public static void Main(string[] args)
         {
+            //Genre genero1 = new Genre() { }
             CreateHostBuilder(args).Build().Run();
            
         }

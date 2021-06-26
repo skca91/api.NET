@@ -75,9 +75,6 @@ namespace api.NET.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdMovie")
-                        .IsUnique();
-
                     b.ToTable("Genre");
                 });
 
@@ -90,16 +87,21 @@ namespace api.NET.Migrations
                     b.Property<DateTime>("Creation")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int?>("GenreId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Image")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("score")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("GenreId");
 
                     b.ToTable("Movie");
                 });
@@ -119,20 +121,18 @@ namespace api.NET.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("api.NET.Models.Genre", b =>
-                {
-                    b.HasOne("api.NET.Models.Movie", "Movie")
-                        .WithOne("Genre")
-                        .HasForeignKey("api.NET.Models.Genre", "IdMovie")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("api.NET.Models.Movie", b =>
                 {
+                    b.HasOne("api.NET.Models.Genre", "Genre")
+                        .WithMany("Movie")
+                        .HasForeignKey("GenreId");
+
                     b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("api.NET.Models.Genre", b =>
+                {
+                    b.Navigation("Movie");
                 });
 #pragma warning restore 612, 618
         }

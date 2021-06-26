@@ -21,16 +21,12 @@ namespace api.NET.Controllers
             _context = context;
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<MovieDTO>>> GetMovies()
-        //{
-        //    return await _context.Movie.Select(p => new MovieDTO { Title = p.Title, Image = p.Image, Creation = p.Creation }).ToListAsync();
-        //}
-
         [HttpGet("{id}")]
-        public async Task<ActionResult<Movie>> GetMovie(int id)
+        public async Task<ActionResult<MovieDetailDTO>> GetMovie(int id)
         {
-            var movie = await _context.Movie.Include(c => c.Characters).Where(c => c.Id == id).FirstOrDefaultAsync();
+            var movie = await _context.Movie.Where(m => m.Id == id).Select(p => new MovieDetailDTO { Title = p.Title, Image = p.Image, Creation = p.Creation }).FirstOrDefaultAsync();
+
+            movie.characters = await _context.Character.Where(m => m.Movies.Contains(new Movie { Id = id })).Select(c => new CharacterDTO { Name = c.Name, Image = c.Image }).ToListAsync();
 
             if (movie == null)
             {

@@ -22,9 +22,11 @@ namespace api.NET.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacter(int id)
+        public async Task<ActionResult<CharacterDetailDTO>> GetCharacter(int id)
         {
-            var character = await _context.Character.Include(c => c.Movies).Where(c => c.Id == id).FirstOrDefaultAsync();
+            var character = await _context.Character.Where(c => c.Id == id).Select(p => new CharacterDetailDTO { Name = p.Name, Image = p.Image, Age = p.Age, Weight = p.Weight, Story = p.Story }).FirstOrDefaultAsync();
+
+            character.movies = await _context.Movie.Where(m => m.Characters.Contains(new Character { Id = id})).Select(m => new MovieDTO { Title = m.Title, Image = m.Image, Creation = m.Creation}).ToListAsync();
 
             if (character == null)
             {

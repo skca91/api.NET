@@ -8,12 +8,15 @@ namespace api.NET.Models
 {
     public class Genre
     {
+        public Genre()
+        {
+            this.Movie = new HashSet<Movie>();
+        }
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
-        public int IdMovie { get; set; }
 
-        public Movie Movie { get; set; }
+        public ICollection<Movie> Movie { get; set; }
     }
 }

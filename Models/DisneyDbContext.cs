@@ -22,10 +22,10 @@ namespace api.NET.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Movie>()
-                .HasOne(b => b.Genre)
-                .WithOne(i => i.Movie)
-                .HasForeignKey<Genre>(b => b.IdMovie);
+            //modelBuilder.Entity<Movie>()
+            //    .HasOne(b => b.Genre)
+            //    .WithOne(i => i.Movie)
+            //    .HasForeignKey<Genre>(b => b.IdMovie);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
