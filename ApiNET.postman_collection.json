@@ -1,0 +1,867 @@
+{
+	"info": {
+		"_postman_id": "414088f1-5277-4ee2-846b-fa4c30c4cdd2",
+		"name": "ApiNET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peliculas",
+			"item": [
+				{
+					"name": "Detalle de peliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detalle de peliculas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/movies/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"movies",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 18:00:10 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"image\": \"mkljkl\",\n    \"title\": \"luca\",\n    \"creation\": \"2021-06-01T12:12:02\",\n    \"score\": 0,\n    \"characters\": [\n        {\n            \"name\": \"Luca Paguro\",\n            \"image\": \"fghdgh\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "listado de peliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listado de peliculas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 19:21:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"titulo\": \"La casa de Mickey mouse\",\n        \"imagen\": \"pelicula.jpg\",\n        \"creacion\": \"2021-05-12T16:20:04\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Guardar pelicula",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Image\": \"casa.jpg\",\r\n    \"Title\": \"La casa de Mickey Mouse\",\r\n    \"Creation\": \"2021-06-16 20:54:02.000000\",\r\n    \"score\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:44920/api/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guardar pelicula",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Image\": \"casa.jpg\",\r\n    \"Title\": \"La casa de Mickey Mouse\",\r\n    \"Creation\": \"2021-06-16 20:54:02.000000\",\r\n    \"score\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44920/api/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"movies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:44920/api/movies/2"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 00:07:33 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"image\": \"casa.jpg\",\n    \"title\": \"La casa de Mickey Mouse\",\n    \"creation\": \"2021-06-16T20:54:02\",\n    \"score\": 4,\n    \"genre\": null,\n    \"characters\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Busqueda de Peliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/movies?name=luca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/movies?name=luca",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "200"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 14:21:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"Luca\",\n        \"image\": \"https://static.wikia.nocookie.net/disney/images/0/0c/Luca_character_poster.jpeg/revision/latest/scale-to-width-down/1000?cb=20210602204924\",\n        \"creation\": \"2021-06-16T20:54:02\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Personajes",
+			"item": [
+				{
+					"name": "listado de personajes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "listado de personajes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 19:21:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"nombre\": \"Mickey Mouse\",\n        \"imagen\": \"mickey.jpg\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Guardar un personaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Image\": \"mickey.jpg\",\r\n    \"Name\": \"Mickey Mouse\",\r\n    \"Age\": 3,\r\n    \"weight\" : 10.0,\r\n    \"Story\" : \"ES el personaje principal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:44920/api/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Guardar un personaje",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Imagen\": \"mickey.jpg\",\r\n    \"Nombre\": \"Mickey Mouse\",\r\n    \"Edad\": 3,\r\n    \"Peso\" : 10.0,\r\n    \"Historia\" : \"ES el personaje principal\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44920/api/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"characters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:44920/api/characters?id=1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 18:12:28 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"idPersonaje\": 1,\n    \"imagen\": \"mickey.jpg\",\n    \"nombre\": \"Mickey Mouse\",\n    \"edad\": 3,\n    \"peso\": 10,\n    \"historia\": \"ES el personaje principal\",\n    \"peliculas\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar un personaje",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Eliminar un personaje",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 25 Jun 2021 19:29:28 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Detalle de personaje",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detalle de personaje",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "158"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 17:59:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Luca Paguro\",\n    \"image\": \"fghdgh\",\n    \"age\": 13,\n    \"weight\": 30,\n    \"story\": \"Lucaaaa\",\n    \"movies\": [\n        {\n            \"title\": \"luca\",\n            \"image\": \"mkljkl\",\n            \"creation\": \"2021-06-01T12:12:02\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Busqueda de personajes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:44920/api/characters?age=13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Busqueda de personajes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:44920/api/characters?age=13",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "age",
+											"value": "13"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 18:00:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Luca Paguro\",\n        \"image\": \"fghdgh\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registro de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"steph\",\r\n    \"email\": \"skca9101@gmail.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:44920/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "registro de usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"steph\",\r\n    \"email\": \"skca9101@gmail.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44920/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 20:17:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Success\",\n    \"message\": \"User created successfully!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Inicio de sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"steph\",\r\n    \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:44920/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "44920",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Inicio de sesion",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"steph\",\r\n    \"password\": \"Password@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:44920/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "44920",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "388"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Jun 2021 20:19:47 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RlcGgiLCJqdGkiOiJmZjE0NWExZi1jMzc0LTQ0MGEtOGI4My01MzJlMGQyZmM5MDMiLCJleHAiOjE2MjQ3NDk1ODYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQ5MjAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ0OTIwIn0.XNYL1hblQ0B4LhcL8MD8Tqe6qTbHhZWHL70gytCYp7o\",\n    \"expiration\": \"2021-06-26T23:19:46Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
