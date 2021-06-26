@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using api.NET.Models;
 using api.NET.Views;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.NET.Controllers
 {
+    [Authorize]
     [Route("api/characters")]
     [ApiController]
     public class CharacterController : ControllerBase

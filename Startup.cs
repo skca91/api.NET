@@ -14,6 +14,11 @@ using System.Threading.Tasks;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using api.NET.Models;
+using api.NET.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace api.NET
 {
@@ -39,11 +44,40 @@ namespace api.NET
                     .EnableSensitiveDataLogging() 
                     .EnableDetailedErrors()      
             );
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddDbContext<AuthenticationDbContext>(
+                dbContextOptions => dbContextOptions
+                    .UseMySql(connectionString, serverVersion)
+                    .EnableSensitiveDataLogging()
+                    .EnableDetailedErrors()
+            );
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AuthenticationDbContext>()
+                .AddDefaultTokenProviders();
+
+            // Adding Authentication  
+            services.AddAuthentication(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "api.NET", Version = "v1" });
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+
+            // Adding Jwt Bearer  
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["JWT:ValidAudience"],
+                    ValidIssuer = Configuration["JWT:ValidIssuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                };
             });
+
+            _ = services.AddSwaggerGen();
 
             services.AddControllers().AddNewtonsoftJson();
 
@@ -63,6 +97,7 @@ namespace api.NET
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

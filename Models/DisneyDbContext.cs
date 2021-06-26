@@ -15,7 +15,7 @@ namespace api.NET.Models
         public DisneyDbContext()
         {
         }
-        public DisneyDbContext(DbContextOptions options)
+        public DisneyDbContext(DbContextOptions<DisneyDbContext> options)
         : base(options)
         {
         }
