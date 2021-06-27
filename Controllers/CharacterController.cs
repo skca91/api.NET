@@ -94,7 +94,7 @@ namespace api.NET.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CharacterDTO>> Search([FromQuery]string name, [FromQuery] int? age, [FromQuery] int? movies)
+        public async Task<IEnumerable<CharacterDTO>> GetCharacters([FromQuery]string? name, [FromQuery] int? age, [FromQuery] int? movies)
         {
             IQueryable<Character> query = _context.Character;
 
